@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>AURA DERMATOLOGY | Premium Skin & Laser Clinic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #FFFCF9;
+      color: #2C241F;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .logo, .section-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Premium Button Styles */
+    .btn-primary, .btn-outline, .btn-gold {
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 32px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 0.3px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #DAB88B, #C6A27A);
+      color: white;
+      box-shadow: 0 8px 20px rgba(198, 162, 122, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(198, 162, 122, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #DAB88B;
+      color: #A7753F;
+    }
+
+    .btn-outline:hover {
+      background: #DAB88B;
+      color: white;
+    }
+
+    /* Header */
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 252, 245, 0.96);
+      backdrop-filter: blur(14px);
+      z-index: 1000;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(218, 184, 139, 0.2);
+    }
+    .header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo h1 {
+      font-size: 1.7rem;
+      background: linear-gradient(130deg, #B47C4C, #E1BC93);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .logo span {
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      display: block;
+      color: #B48C6C;
+    }
+    .desktop-nav {
+      display: none;
+      gap: 32px;
+      align-items: center;
+    }
+    .desktop-nav a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #4F3B2C;
+      transition: color 0.2s;
+    }
+    .desktop-nav a:hover {
+      color: #C6A27A;
+    }
+    .desktop-nav .btn-cta {
+      background: linear-gradient(135deg, #DAB88B, #C6A27A);
+      padding: 10px 28px;
+      border-radius: 40px;
+      color: white;
+    }
+    .hamburger {
+      font-size: 28px;
+      cursor: pointer;
+      color: #B27D56;
+      display: block;
+    }
+    .nav-menu {
+      position: fixed;
+      top: 72px;
+      left: -100%;
+      width: 85%;
+      height: calc(100vh - 72px);
+      background: #FFFBF5;
+      backdrop-filter: blur(20px);
+      transition: 0.3s ease;
+      padding: 32px 24px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      border-radius: 0 28px 28px 0;
+    }
+    .nav-menu.active {
+      left: 0;
+    }
+    .nav-menu a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #4F3B2C;
+      font-size: 1.2rem;
+    }
+    @media (min-width: 992px) {
+      .hamburger { display: none; }
+      .desktop-nav { display: flex; }
+      .nav-menu { display: none; }
+      .container { padding: 0 40px; }
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+      margin: 40px 0 60px;
+    }
+    .hero-content h1 {
+      font-size: 2.8rem;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .hero-form {
+      background: white;
+      border-radius: 32px;
+      padding: 32px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(218, 184, 139, 0.3);
+      margin-top: 24px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #8B694C;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+    .form-group input, 
+    .form-group select,
+    .booking-form input,
+    .booking-form select,
+    .booking-form textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 2px solid #F0E4D8;
+      border-radius: 16px;
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.2s;
+      background: #FFFFFF;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .booking-form input:focus,
+    .booking-form select:focus,
+    .booking-form textarea:focus {
+      outline: none;
+      border-color: #DAB88B;
+      box-shadow: 0 0 0 3px rgba(218, 184, 139, 0.1);
+    }
+    .hero-form .btn-primary {
+      width: 100%;
+      margin-top: 8px;
+    }
+    @media (min-width: 768px) {
+      .hero { flex-direction: row; align-items: center; gap: 60px; }
+      .hero-content, .hero-image { flex: 1; }
+    }
+
+    /* Image Container */
+    .img-container {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #F5EDE3, #E9D9CC);
+      border-radius: 28px;
+    }
+    .img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-image .img-container {
+      height: 450px;
+    }
+    @media (max-width: 768px) {
+      .hero-image .img-container {
+        height: 350px;
+      }
+    }
+
+    /* Trust Badges */
+    .trust-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 32px;
+      background: linear-gradient(135deg, #FEF8F0, #FFFCF5);
+      border-radius: 80px;
+      padding: 24px 32px;
+      margin: 40px 0;
+    }
+    .trust-item { text-align: center; min-width: 110px; }
+    .trust-item i { font-size: 28px; color: #DAB88B; margin-bottom: 8px; display: block; }
+    .trust-item p { font-weight: 500; color: #5C3E2A; }
+
+    /* Booking Section */
+    .booking-section {
+      background: linear-gradient(135deg, #FFF9F2, #FFFCF5);
+      border-radius: 48px;
+      padding: 48px 40px;
+      margin: 80px 0;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+      border: 1px solid rgba(218, 184, 139, 0.2);
+    }
+    .booking-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .booking-header h2 {
+      font-size: 2.2rem;
+      color: #2C241F;
+      margin-bottom: 12px;
+    }
+    .booking-header p {
+      color: #8B694C;
+      font-size: 1rem;
+    }
+    .booking-form-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    @media (min-width: 768px) {
+      .booking-form-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .booking-form .full-width {
+      grid-column: 1 / -1;
+    }
+    .booking-form button {
+      width: 100%;
+      margin-top: 16px;
+      font-size: 1.1rem;
+      padding: 16px;
+    }
+    .form-success {
+      text-align: center;
+      padding: 16px;
+      background: #E8F5E9;
+      border-radius: 16px;
+      color: #2E7D32;
+      margin-top: 20px;
+      display: none;
+    }
+    .form-success.show {
+      display: block;
+      animation: fadeInUp 0.4s ease;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .error-msg {
+      color: #D32F2F;
+      font-size: 0.75rem;
+      margin-top: 6px;
+      display: block;
+    }
+
+    /* Other Sections */
+    .section {
+      margin: 64px 0;
+    }
+    .section-title {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .section-title:after {
+      content: '';
+      width: 70px;
+      height: 3px;
+      background: #E7BC91;
+      display: block;
+      margin: 12px auto 0;
+      border-radius: 4px;
+    }
+    .glass-card {
+      background: rgba(255, 250, 240, 0.7);
+      border-radius: 32px;
+      padding: 28px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.04);
+      transition: transform 0.3s;
+    }
+    .glass-card:hover {
+      transform: translateY(-4px);
+    }
+    .grid-2, .services-grid, .concerns-grid, .why-grid, .tips-grid, .insta-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    @media (min-width: 768px) {
+      .grid-2, .services-grid, .concerns-grid, .why-grid, .tips-grid, .insta-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 1024px) {
+      .services-grid, .why-grid, .tips-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .insta-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    .service-card, .tip-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      transition: all 0.3s;
+      border: 1px solid #F9EFE4;
+    }
+    .service-card:hover, .tip-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 30px rgba(0,0,0,0.05);
+    }
+    .service-img, .tip-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .service-card-content, .tip-content {
+      padding: 24px;
+      text-align: center;
+    }
+    .stats-wrapper {
+      background: linear-gradient(120deg, #FCF5EA, #FFF8F0);
+      border-radius: 56px;
+      padding: 48px 32px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 48px;
+    }
+    .stat-number {
+      font-size: 2.7rem;
+      font-weight: 700;
+      font-family: 'Playfair Display';
+      color: #B47C4C;
+    }
+    .testimonial-slider {
+      background: #FFFCF5;
+      border-radius: 48px;
+      padding: 32px 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    }
+    .testimonial-track {
+      display: flex;
+      transition: transform 0.4s ease;
+    }
+    .testimonial-card {
+      min-width: 100%;
+      padding: 20px;
+      text-align: center;
+    }
+    .faq-item {
+      background: white;
+      border-radius: 24px;
+      margin-bottom: 16px;
+      padding: 20px 24px;
+      cursor: pointer;
+      border: 1px solid #F2E5DA;
+    }
+    .faq-question {
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      color: #6B4F38;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+      padding-top: 16px;
+    }
+    footer {
+      background: #1E1915;
+      color: #E7D9CF;
+      padding: 48px 0 24px;
+      border-radius: 40px 40px 0 0;
+      margin-top: 60px;
+    }
+    iframe { width: 100%; border-radius: 28px; height: 260px; border: none; }
+    .whatsapp-float, .call-float {
+      position: fixed;
+      bottom: 24px;
+      right: 20px;
+      background: #25D366;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 28px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      z-index: 99;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+    .call-float {
+      right: 90px;
+      background: #B47C4C;
+    }
+    .whatsapp-float:hover, .call-float:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+<div class="sticky-header">
+  <div class="container header-flex">
+    <div class="logo">
+      <h1>AURA</h1>
+      <span>DERMATOLOGY & AESTHETICS</span>
+    </div>
+    <div class="desktop-nav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#booking" class="btn-cta">Book Now</a>
+    </div>
+    <div class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></div>
+  </div>
+  <div class="nav-menu" id="mobileMenu">
+    <a href="#home">Home</a>
+    <a href="#about">Our Philosophy</a>
+    <a href="#dermatologist">Specialist</a>
+    <a href="#services">Treatments</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#booking">Book Consultation</a>
+  </div>
+</div>
+
+<main>
+  <div class="container" id="home">
+    <!-- Hero Section -->
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Where science meets <br>radiant beauty</h1>
+        <p style="margin: 20px 0; font-size: 1.1rem; color: #5C3E2A;">Advanced dermatology & bespoke skincare for timeless glow. Trusted by 12,000+ clients.</p>
+        
+        <div class="hero-form">
+          <div class="form-group">
+            <label><i class="fas fa-user"></i> Full Name</label>
+            <input type="text" id="heroFullName" placeholder="Enter your full name">
+            <span class="error-msg" id="heroNameError"></span>
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-phone-alt"></i> Phone Number</label>
+            <input type="tel" id="heroPhoneNum" placeholder="10-digit mobile number">
+            <span class="error-msg" id="heroPhoneError"></span>
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-calendar-alt"></i> Preferred Date</label>
+            <input type="date" id="heroDate">
+          </div>
+          <button class="btn-primary" id="heroSubmitBtn">
+            <i class="fas fa-spa"></i> Book Free Consultation
+          </button>
+          <p style="font-size: 0.75rem; text-align: center; margin-top: 16px; color: #8B694C;">
+            ✅ Free assessment | No commitment
+          </p>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="img-container">
+          <img id="heroImg" alt="Glowing skin model" loading="eager" style="height:100%; width:100%; object-fit:cover;">
+        </div>
+      </div>
+    </div>
+
+    <!-- Trust Badges -->
+    <div class="trust-row">
+      <div class="trust-item"><i class="fas fa-user-md"></i><p>Board Certified</p></div>
+      <div class="trust-item"><i class="fas fa-calendar-alt"></i><p>15+ Years</p></div>
+      <div class="trust-item"><i class="fas fa-smile"></i><p>12k+ Happy Clients</p></div>
+      <div class="trust-item"><i class="fas fa-star-of-life"></i><p>Medical Luxury</p></div>
+    </div>
+
+    <!-- About Clinic -->
+    <div id="about" class="section glass-card" style="text-align:center;">
+      <h2 class="section-title">The AURA Ethos</h2>
+      <p style="max-width:700px; margin:0 auto;">We blend medical precision with spa serenity. Every treatment is tailored to your skin's unique DNA — delivering results that feel luxurious and transformative.</p>
+    </div>
+
+    <!-- Dermatologist Profile -->
+    <div id="dermatologist" class="section grid-2" style="align-items:center;">
+      <div class="img-container" style="height: 400px;">
+        <img id="dermImg" alt="Dr. Meera Vora" loading="lazy" style="height:100%; width:100%; object-fit:cover;">
+      </div>
+      <div>
+        <h3 style="font-size:1.9rem;">Dr. Meera Vora</h3>
+        <p style="color:#A7753F; margin-bottom:12px;">MD, FAAD | Laser & Aesthetic Dermatology</p>
+        <p>Harvard-trained, fellow of the American Academy of Dermatology. Dr. Vora brings 14+ years of expertise in non-invasive rejuvenation & medical dermatology. Known for natural, glowing results.</p>
+        <p style="margin-top: 12px;"><i class="fas fa-certificate" style="color:#DAB88B;"></i> Certified: US Board, European Laser Society</p>
+      </div>
+    </div>
+
+    <!-- Services Section -->
+    <div id="services" class="section">
+      <h2 class="section-title">Signature Treatments</h2>
+      <div class="services-grid" id="servicesGrid"></div>
+    </div>
+
+    <!-- Skin Concerns -->
+    <div class="section"><h2 class="section-title">Treat Your Concerns</h2><div class="concerns-grid" id="concernsGrid"></div></div>
+
+    <!-- Why Choose Us -->
+    <div class="section"><h2 class="section-title">Why AURA</h2><div class="why-grid" id="whyGrid"></div></div>
+
+    <!-- Before & After -->
+    <div class="section"><h2 class="section-title">Real Results</h2><div class="grid-2" id="beforeAfterGrid"></div></div>
+
+    <!-- Testimonials Slider -->
+    <div id="testimonials" class="section">
+      <h2 class="section-title">Client Love</h2>
+      <div class="testimonial-slider">
+        <div class="testimonial-track" id="testiTrack"></div>
+        <div class="slider-controls" style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
+          <button id="prevTesti" style="background: #EFE0D2; border: none; width: 44px; height: 44px; border-radius: 60px; cursor: pointer;"><i class="fas fa-chevron-left"></i></button>
+          <button id="nextTesti" style="background: #EFE0D2; border: none; width: 44px; height: 44px; border-radius: 60px; cursor: pointer;"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Instagram Gallery -->
+    <div class="section"><h2 class="section-title">@AURASKIN</h2><div class="insta-grid" id="instaGrid"></div></div>
+
+    <!-- Offers -->
+    <div class="section"><h2 class="section-title">Exclusive Packages</h2><div class="services-grid" id="offersGrid"></div></div>
+
+    <!-- FAQ -->
+    <div class="section"><h2 class="section-title">FAQs</h2><div id="faqContainer"></div></div>
+
+    <!-- Skincare Tips -->
+    <div class="section"><h2 class="section-title">Glow Journal</h2><div class="tips-grid" id="tipsGrid"></div></div>
+
+    <!-- Stats Counters -->
+    <div class="stats-wrapper section" id="statsSection">
+      <div class="stat-item"><div class="stat-number" data-target="12800">0</div><p>Happy Patients</p></div>
+      <div class="stat-item"><div class="stat-number" data-target="15">0</div><p>Years of Excellence</p></div>
+      <div class="stat-item"><div class="stat-number" data-target="28">0</div><p>Expert Practitioners</p></div>
+      <div class="stat-item"><div class="stat-number" data-target="5000">0</div><p>Laser Procedures</p></div>
+    </div>
+
+    <!-- MAIN BOOKING SECTION -->
+    <div id="booking" class="booking-section">
+      <div class="booking-header">
+        <h2>✨ Schedule Your Consultation</h2>
+        <p>Experience personalized care from our expert dermatologists</p>
+      </div>
+      <form id="appointmentForm">
+        <div class="booking-form-grid">
+          <div class="form-group">
+            <label><i class="fas fa-user-circle"></i> Full Name *</label>
+            <input type="text" id="fullName" placeholder="Enter your full name">
+            <span class="error-msg" id="nameError"></span>
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-envelope"></i> Email Address</label>
+            <input type="email" id="email" placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-phone-alt"></i> Phone Number *</label>
+            <input type="tel" id="mobileNum" placeholder="10-digit mobile number">
+            <span class="error-msg" id="mobileError"></span>
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-calendar-check"></i> Preferred Date *</label>
+            <input type="date" id="appointmentDate">
+            <span class="error-msg" id="dateError"></span>
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-clock"></i> Preferred Time</label>
+            <select id="preferredTime">
+              <option value="">Select time slot</option>
+              <option>10:00 AM - 11:00 AM</option>
+              <option>11:00 AM - 12:00 PM</option>
+              <option>12:00 PM - 01:00 PM</option>
+              <option>02:00 PM - 03:00 PM</option>
+              <option>03:00 PM - 04:00 PM</option>
+              <option>04:00 PM - 05:00 PM</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-spa"></i> Select Treatment *</label>
+            <select id="treatmentChoice">
+              <option value="">Choose a treatment</option>
+              <option>Acne & Scar Treatment</option>
+              <option>Laser Hair Removal</option>
+              <option>Skin Brightening</option>
+              <option>Anti-Aging / Botox</option>
+              <option>Chemical Peels</option>
+              <option>Hydrafacial</option>
+            </select>
+            <span class="error-msg" id="treatmentError"></span>
+          </div>
+          <div class="form-group full-width">
+            <label><i class="fas fa-comment-dots"></i> Additional Notes</label>
+            <textarea id="notes" rows="3" placeholder="Tell us about your skin concerns..." style="resize: vertical;"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn-primary">
+          <i class="fas fa-calendar-plus"></i> Book My Appointment
+        </button>
+        <div id="formSuccess" class="form-success">
+          <i class="fas fa-check-circle"></i> Thank you! We'll contact you within 2 hours to confirm.
+        </div>
+      </form>
+    </div>
+
+    <!-- Contact + Map -->
+    <div id="contact" class="section">
+      <h2 class="section-title">Visit Our Sanctuary</h2>
+      <div class="grid-2" style="gap: 30px;">
+        <div>
+          <p><i class="fas fa-map-marker-alt"></i> 15, Linking Road, Khar West, Mumbai 400052</p>
+          <p><i class="fas fa-phone-alt"></i> +91 7897464377</p>
+          <p><i class="fas fa-envelope"></i> hello@auraskin.com</p>
+          <button class="btn-outline" onclick="window.location.href='tel:+917897464377'" style="margin-top: 16px;"><i class="fas fa-phone"></i> Click to Call</button>
+        </div>
+        <iframe src="https://maps.google.com/maps?q=Mumbai%20Khar%20West&t=&z=14&ie=UTF8&iwloc=&output=embed" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container" style="display:flex; flex-direction:column; gap:20px;">
+    <div style="display:flex; justify-content:space-between; flex-wrap:wrap;">
+      <div><h3>AURA Skin Science</h3><p>Medical luxury for timeless skin</p></div>
+      <div><h4>Follow us</h4><div><a href="#" style="color:#E7BC91; margin-right:16px;"><i class="fab fa-instagram"></i></a><a href="#" style="color:#E7BC91;"><i class="fab fa-facebook"></i></a></div></div>
+    </div>
+    <hr style="border-color:#4A3524;">
+    <p style="text-align:center;">© 2025 AURA Dermatology. All rights reserved.</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/917897464377?text=Hello%20I'd%20like%20a%20skin%20consultation" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a href="tel:+917897464377" class="call-float"><i class="fas fa-phone-alt"></i></a>
+
+<script>
+// ===================== IMAGE FALLBACK SYSTEM WITH REAL RELEVANT IMAGES =====================
+function setImageWithFallback(imgElement, primaryUrl, fallbackUrls) {
+  let attempt = 0;
+  const allUrls = [primaryUrl, ...fallbackUrls];
+  
+  const tryNext = () => {
+    if (attempt >= allUrls.length) {
+      // Ultimate fallback: gradient placeholder
+      imgElement.style.background = "linear-gradient(135deg, #E9D9CC, #DAC4B2)";
+      imgElement.style.objectFit = "cover";
+      imgElement.alt = "Premium Aesthetic";
+      return;
+    }
+    const img = new Image();
+    img.onload = () => { imgElement.src = allUrls[attempt]; };
+    img.onerror = () => { attempt++; tryNext(); };
+    img.src = allUrls[attempt];
+  };
+  tryNext();
+}
+
+// Hero Image - Real glowing skin
+setImageWithFallback(document.getElementById('heroImg'), 
+  'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80',
+  [
+    'https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1200&q=80'
+  ]
+);
+
+// Dermatologist Image - Professional doctor
+setImageWithFallback(document.getElementById('dermImg'),
+  'https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=800&q=80',
+  [
+    'https://images.unsplash.com/photo-1559839734-2b71cbe9b5b6?auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=800&q=80'
+  ]
+);
+
+// Services with real images
+const services = [
+  { title: 'Acne & Scar Therapy', desc: 'Medical-grade peels + laser resurfacing', icon: 'fa-bolt', img: 'https://images.unsplash.com/photo-1580612864763-5e6c6f8d5a4b?auto=format&fit=crop&w=800&q=80', fallback: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80' },
+  { title: 'Laser Hair Removal', desc: 'Painless, permanent reduction', icon: 'fa-hand-sparkles', img: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=800&q=80', fallback: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80' },
+  { title: 'Anti-Aging & Fillers', desc: 'Botox, Profhilo, collagen induction', icon: 'fa-feather-alt', img: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80', fallback: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=800&q=80' },
+  { title: 'Hydrafacial MD', desc: 'Deep cleanse + antioxidant infusion', icon: 'fa-water', img: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80', fallback: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80' }
+];
+
+const servicesGrid = document.getElementById('servicesGrid');
+services.forEach(s => {
+  const card = document.createElement('div');
+  card.className = 'service-card';
+  card.innerHTML = `
+    <img class="service-img" id="img_${s.title.replace(/\s/g, '')}" alt="${s.title}" loading="lazy">
+    <div class="service-card-content">
+      <i class="fas ${s.icon}" style="font-size: 2rem; color:#DAB88B; margin-bottom: 12px; display: block;"></i>
+      <h3>${s.title}</h3>
+      <p>${s.desc}</p>
+    </div>
+  `;
+  servicesGrid.appendChild(card);
+  const imgEl = card.querySelector('.service-img');
+  setImageWithFallback(imgEl, s.img, [s.fallback]);
+});
+
+// Skin Concerns
+const concerns = ['Acne & Congestion', 'Pigmentation / Melasma', 'Fine Lines & Wrinkles', 'Dehydrated / Dull Skin', 'Sensitive Skin', 'Sun Damage'];
+const concernsGrid = document.getElementById('concernsGrid');
+concerns.forEach(c => {
+  const card = document.createElement('div');
+  card.className = 'glass-card';
+  card.innerHTML = `<i class="fas fa-dot-circle" style="color:#DAB88B;"></i> ${c}`;
+  concernsGrid.appendChild(card);
+});
+
+// Why Choose Us
+const whyItems = [
+  { icon: 'fa-microscope', title: 'Evidence-Based', desc: 'FDA-cleared lasers & medical protocols' },
+  { icon: 'fa-spa', title: 'Luxury Sanctuary', desc: 'Calming interiors, premium aftercare' },
+  { icon: 'fa-chart-line', title: 'Personalized Plans', desc: 'Each skin journey is unique' }
+];
+const whyGrid = document.getElementById('whyGrid');
+whyItems.forEach(w => {
+  const card = document.createElement('div');
+  card.className = 'glass-card';
+  card.innerHTML = `<i class="fas ${w.icon}" style="font-size: 2rem; color:#DAB88B; margin-bottom: 12px; display: block;"></i><h3>${w.title}</h3><p>${w.desc}</p>`;
+  whyGrid.appendChild(card);
+});
+
+// Before & After
+const baItems = [
+  { before: 'https://images.unsplash.com/photo-1580612864763-5e6c6f8d5a4b?auto=format&fit=crop&w=800&q=80', after: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80', title: 'Acne Scar Treatment' }
+];
+const baGrid = document.getElementById('beforeAfterGrid');
+baGrid.innerHTML = `
+  <div class="glass-card"><i class="fas fa-image"></i><p style="margin-top:12px;">Before Acne Scarring</p></div>
+  <div class="glass-card"><i class="fas fa-image"></i><p style="margin-top:12px;">After 3 Sessions</p></div>
+`;
+
+// Testimonials
+const testimonials = [
+  { text: '"My skin has never looked this radiant. The laser treatment was seamless and results are incredible."', name: '- Ananya R.' },
+  { text: '"Finally a clinic that understands sensitive skin. Dr. Vora is an artist. Highly recommend!"', name: '- Kavita S.' },
+  { text: '"Luxurious, professional, and life-changing. Their Hydrafacial is pure magic."', name: '- Riya M.' }
+];
+const testiTrack = document.getElementById('testiTrack');
+testimonials.forEach(t => {
+  const card = document.createElement('div');
+  card.className = 'testimonial-card';
+  card.innerHTML = `<i class="fas fa-quote-left" style="font-size:2rem;color:#DAB88B;"></i><p style="margin: 16px 0;">${t.text}</p><h4>${t.name}</h4>`;
+  testiTrack.appendChild(card);
+});
+
+// Instagram Gallery
+const instaGrid = document.getElementById('instaGrid');
+const instaImages = [
+  'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80',
+  'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=600&q=80',
+  'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=600&q=80',
+  'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80'
+];
+instaImages.forEach((img, idx) => {
+  const div = document.createElement('div');
+  div.className = 'img-container';
+  div.style.height = '240px';
+  div.innerHTML = `<img id="instaImg${idx}" style="height:100%; width:100%; object-fit:cover;" loading="lazy" alt="Instagram">`;
+  instaGrid.appendChild(div);
+  const imgEl = div.querySelector('img');
+  setImageWithFallback(imgEl, img, ['https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80']);
+});
+
+// Offers
+const offers = [
+  { title: 'Summer Glow Ritual', desc: 'Hydrafacial + Chemical Peel + LED: ₹7,999', icon: 'fa-gem' },
+  { title: 'Laser Package', desc: '6 Sessions of Full Face + Underarms: 25% off', icon: 'fa-hand-sparkles' }
+];
+const offersGrid = document.getElementById('offersGrid');
+offers.forEach(offer => {
+  const card = document.createElement('div');
+  card.className = 'service-card';
+  card.innerHTML = `<div style="padding: 28px 20px; text-align: center;"><i class="fas ${offer.icon}" style="font-size: 2rem; color:#DAB88B; margin-bottom: 12px;"></i><h3>${offer.title}</h3><p>${offer.desc}</p><button class="btn-primary" style="margin-top: 16px; padding: 10px 24px;">Claim Offer</button></div>`;
+  offersGrid.appendChild(card);
+});
+
+// FAQ
+const faqs = [
+  { q: 'Is laser treatment safe for Indian skin?', a: 'Yes, we use advanced Nd:YAG lasers specifically for melanin-rich skin tones with zero downtime.' },
+  { q: 'How many sessions for permanent hair reduction?', a: 'Typically 6-8 sessions spaced 4-6 weeks apart yield 85-90% reduction.' },
+  { q: 'Do you offer virtual consultations?', a: 'Absolutely, we provide online dermatology consultations via video call.' }
+];
+const faqContainer = document.getElementById('faqContainer');
+faqs.forEach(f => {
+  const item = document.createElement('div');
+  item.className = 'faq-item';
+  item.innerHTML = `<div class="faq-question">${f.q} <i class="fas fa-plus"></i></div><div class="faq-answer">${f.a}</div>`;
+  faqContainer.appendChild(item);
+});
+
+// FAQ Toggle
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.addEventListener('click', () => {
+    item.classList.toggle('active');
+    const icon = item.querySelector('.fa-plus, .fa-minus');
+    if (item.classList.contains('active')) icon.classList.replace('fa-plus', 'fa-minus');
+    else icon.classList.replace('fa-minus', 'fa-plus');
+  });
+});
+
+// Tips
+const tips = [
+  { title: 'Vitamin C Power', desc: 'Brightens & protects against UV damage. Use AM routine.', icon: 'fa-leaf' },
+  { title: 'Retinol Rituals', desc: 'Start slow, use pea-sized amount at night for collagen.', icon: 'fa-moon' },
+  { title: 'SPF Non-Negotiable', desc: 'Even indoors, SPF 50 prevents hyperpigmentation.', icon: 'fa-sun' }
+];
+const tipsGrid = document.getElementById('tipsGrid');
+tips.forEach(tip => {
+  const card = document.createElement('div');
+  card.className = 'tip-card';
+  card.innerHTML = `<div style="padding: 24px;"><i class="fas ${tip.icon}" style="font-size: 2rem; color:#DAB88B; margin-bottom: 12px;"></i><h3>${tip.title}</h3><p>${tip.desc}</p></div>`;
+  tipsGrid.appendChild(card);
+});
+
+// ===================== FORM VALIDATION =====================
+// Hero Form
+document.getElementById('heroSubmitBtn').addEventListener('click', function(e) {
+  e.preventDefault();
+  let isValid = true;
+  const name = document.getElementById('heroFullName').value.trim();
+  const phone = document.getElementById('heroPhoneNum').value.trim();
+  
+  document.getElementById('heroNameError').innerText = '';
+  document.getElementById('heroPhoneError').innerText = '';
+  
+  if (name === '') {
+    document.getElementById('heroNameError').innerText = 'Please enter your name';
+    isValid = false;
+  }
+  const phoneRegex = /^\d{10}$/;
+  if (phone === '') {
+    document.getElementById('heroPhoneError').innerText = 'Phone number is required';
+    isValid = false;
+  } else if (!phoneRegex.test(phone)) {
+    document.getElementById('heroPhoneError').innerText = 'Enter a valid 10-digit number';
+    isValid = false;
+  }
+  
+  if (isValid) {
+    alert(`✨ Thank you ${name}! We'll contact you shortly at ${phone} to confirm your consultation.`);
+    document.getElementById('heroFullName').value = '';
+    document.getElementById('heroPhoneNum').value = '';
+    document.getElementById('heroDate').value = '';
+  }
+});
+
+// Main Booking Form
+const bookingForm = document.getElementById('appointmentForm');
+bookingForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  let valid = true;
+  const name = document.getElementById('fullName').value.trim();
+  const phone = document.getElementById('mobileNum').value.trim();
+  const date = document.getElementById('appointmentDate').value;
+  const treatment = document.getElementById('treatmentChoice').value;
+  
+  document.getElementById('nameError').innerText = '';
+  document.getElementById('mobileError').innerText = '';
+  document.getElementById('dateError').innerText = '';
+  document.getElementById('treatmentError').innerText = '';
+  
+  if (name === '') {
+    document.getElementById('nameError').innerText = 'Full name is required';
+    valid = false;
+  }
+  const phoneRegex = /^\d{10}$/;
+  if (phone === '') {
+    document.getElementById('mobileError').innerText = 'Phone number is required';
+    valid = false;
+  } else if (!phoneRegex.test(phone)) {
+    document.getElementById('mobileError').innerText = 'Enter a valid 10-digit number';
+    valid = false;
+  }
+  if (date === '') {
+    document.getElementById('dateError').innerText = 'Please select a preferred date';
+    valid = false;
+  }
+  if (treatment === '') {
+    document.getElementById('treatmentError').innerText = 'Please select a treatment';
+    valid = false;
+  }
+  
+  if (valid) {
+    const successDiv = document.getElementById('formSuccess');
+    successDiv.classList.add('show');
+    bookingForm.reset();
+    setTimeout(() => successDiv.classList.remove('show'), 5000);
+  }
+});
+
+// Testimonial Slider
+let currentSlide = 0;
+const slides = document.querySelectorAll('.testimonial-card');
+const trackSlider = document.getElementById('testiTrack');
+function updateSlider() { if(trackSlider) trackSlider.style.transform = `translateX(-${currentSlide * 100}%)`; }
+document.getElementById('nextTesti')?.addEventListener('click', () => { currentSlide = (currentSlide + 1) % slides.length; updateSlider(); });
+document.getElementById('prevTesti')?.addEventListener('click', () => { currentSlide = (currentSlide - 1 + slides.length) % slides.length; updateSlider(); });
+
+// Animated Counters
+const counters = document.querySelectorAll('.stat-number');
+let counted = false;
+function startCounters() {
+  if (counted) return;
+  counted = true;
+  counters.forEach(counter => {
+    const target = parseInt(counter.getAttribute('data-target'));
+    let current = 0;
+    const increment = target / 50;
+    const update = () => {
+      current += increment;
+      if (current < target) { counter.innerText = Math.floor(current); requestAnimationFrame(update); }
+      else counter.innerText = target;
+    };
+    update();
+  });
+}
+const statsObserver = new IntersectionObserver(entries => { if (entries[0].isIntersecting) startCounters(); }, { threshold: 0.4 });
+if(document.getElementById('statsSection')) statsObserver.observe(document.getElementById('statsSection'));
+
+// Mobile Menu
+const hamburger = document.getElementById('hamburgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger?.addEventListener('click', () => mobileMenu.classList.toggle('active'));
+document.querySelectorAll('#mobileMenu a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('active')));
+
+// Smooth Scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); mobileMenu.classList.remove('active'); }
+  });
+});
+</script>
+</body>
+</html>
